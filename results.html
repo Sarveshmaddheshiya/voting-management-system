@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+        }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .results-table th, .results-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+        .results-table th {
+            background-color: #f2f2f2;
+            color: red;
+        }
+        .results-table th, .results-table td {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Results</h1>
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Candidate Name</th>
+                    <th>Symbol</th>
+                    <th>Votes Received</th>
+                </tr>
+            </thead>
+            <tbody id="results">
+                <!-- Results will be loaded here dynamically -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchResults();
+        });
+
+        function fetchResults() {
+            fetch('fetch_results.php')
+                .then(response => response.json())
+                .then(data => {
+                    const resultsDiv = document.getElementById('results');
+                    resultsDiv.innerHTML = '';
+                    data.forEach(result => {
+                        const resultRow = document.createElement('tr');
+                        resultRow.innerHTML = `
+                            <td>${result.name}</td>
+                            <td><img src="${result.symbol}" alt="Candidate Symbol" width="50" height="50"></td>
+                            <td>${result.votes}</td>
+                        `;
+                        resultsDiv.appendChild(resultRow);
+                    });
+                })
+                .catch(error => console.error('Error fetching results:', error));
+        }
+    </script>
+</body>
+</html>

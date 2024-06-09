@@ -1,0 +1,65 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: login.html");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+        .form-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .form-container input {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+        }
+        .back-button {
+            background-color: #00f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <div class="form-container">
+            <h2>Add Candidate</h2>
+            <form action="add_candidate.php" method="post" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Candidate Name" required>
+                <input type="file" name="image" required>
+                <input type="text" name="symbol" placeholder="Candidate Symbol" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <button class="back-button" onclick="window.location.href='index.html'">Back to Voting</button>
+    </div>
+</body>
+</html>

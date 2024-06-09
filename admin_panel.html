@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            width: 300px;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .container button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Candidate</h1>
+        <form action="add_candidate.php" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Candidate Name" required>
+            <input type="file" name="image" required>
+            <input type="file" name="symbol" required>
+            <button type="submit">Add Candidate</button>
+        </form>
+    </div>
+</body>
+</html>

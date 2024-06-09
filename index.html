@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voting Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:aqua;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            text-align: center;
+        }
+        .candidate {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-items: center;
+            justify-items: center;
+        }
+        .candidate img {
+            width: 50px;
+            height: 50px;
+        }
+        .indicator {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: red;
+            margin-left: 10px; /* Added spacing between button and indicator */
+        }
+        .vote-container {
+            display: flex;
+            align-items: center;
+        }
+        .vote-container button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+        .header {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            font-weight: bold;
+        }
+        .bottom-buttons {
+            margin-top: 20px;
+        }
+        .bottom-buttons button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+        .heading
+        {
+            background-color: red;
+            border-radius: 13px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="beepAudio">
+        <source src="beep.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <h1 class="heading">Voting Management System</h1>
+        <div class="header">
+            <span>Candidate Name</span>
+            <span>Image</span>
+            <span>Symbol</span>
+            <span>Vote</span>
+        </div>
+        <div id="candidates">
+            <!-- Candidates will be loaded here dynamically -->
+        </div>
+        <div class="bottom-buttons">
+            <button onclick="location.href='admin_login.html'">Admin Login</button>
+            <button onclick="location.href='results.html'">View Results</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

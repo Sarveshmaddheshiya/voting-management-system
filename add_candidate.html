@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Candidate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+        .form-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .form-container input {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Candidate</h1>
+        
+        <div class="form-container">
+            <input type="text" id="candidate-name" placeholder="Candidate Name">
+            <input type="text" id="candidate-symbol" placeholder="Candidate Symbol">
+            <input type="file" id="candidate-image">
+            <button onclick="addCandidate()">Submit</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
